@@ -23,4 +23,18 @@ class WelcomeController extends Controller
     }
 
 
+    //percobaan3
+
+    //public function greeting(){
+        //return view('blog.hello', ['name' => 'Ari']);
+    //}
+
+    public function greeting(){
+        return view('blog.hello')
+            ->with('name','Andi')
+            ->with('occupation','Astronaut');
+    }
+
+    
+
 }
