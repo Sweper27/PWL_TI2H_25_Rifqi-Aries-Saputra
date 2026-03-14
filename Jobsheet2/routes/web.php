@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PhotoController;
 
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
@@ -24,6 +25,16 @@ Route::get('/articles/{id}', [WelcomeController::class, 'articles']);
 	//return view('blog.hello', ['name' => 'Rifqi Aries']);
 //});
 
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
+
+
 Route::get('/greeting', [WelcomeController::class, 'greeting']);
+Route::resource('photos', PhotoController::class);
 
 
