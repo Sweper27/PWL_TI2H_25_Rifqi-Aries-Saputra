@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-       public function index()
+      public function index()
     {
-        $user = UserModel::all();
+        // Mengambil data user sekaligus dengan data relasi levelnya
+        $user = UserModel::with('level')->get();
+        
+        // Mengirimkan data tersebut ke view 'user.blade.php'
         return view('user', ['data' => $user]);
     }
 
@@ -52,4 +55,6 @@ class UserController extends Controller
 
         return redirect('/user');
     }
+
+    
 }
